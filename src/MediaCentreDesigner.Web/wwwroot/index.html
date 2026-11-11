@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Media Centre Designer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="no-print">
+  <h1>Media Centre Designer</h1>
+  <p>Tell us what you own and what wood you like. Get a DIY cabinet design, a cut list and IKEA-style build plans. All sizes in inches (decimals or fractions like <code>11 1/2</code>).</p>
+</header>
+
+<main>
+  <form id="form" class="no-print" autocomplete="off">
+    <section class="card">
+      <h2>1. Your gear</h2>
+      <div class="row">
+        <select id="catalog" aria-label="Pick a common device"></select>
+        <button type="button" id="addCatalog">Add</button>
+      </div>
+      <details>
+        <summary>Add a custom device</summary>
+        <div class="grid custom">
+          <label>Name <input id="cName" placeholder="My device"></label>
+          <label>Width <input id="cW" placeholder="12"></label>
+          <label>Height <input id="cH" placeholder="3 1/2"></label>
+          <label>Depth <input id="cD" placeholder="10"></label>
+          <button type="button" id="addCustom">Add custom</button>
+        </div>
+      </details>
+      <table id="devices">
+        <thead><tr><th>Device</th><th>W</th><th>H</th><th>D</th><th>Qty</th><th></th></tr></thead>
+        <tbody></tbody>
+      </table>
+      <p id="empty" class="muted">No devices yet — add some above.</p>
+    </section>
+
+    <section class="card">
+      <h2>2. Materials</h2>
+      <div class="grid">
+        <label>Cabinet material
+          <select id="carcass">
+            <option value="0.25">1/4" plywood</option>
+            <option value="0.375">3/8" plywood</option>
+            <option value="0.5">1/2" plywood</option>
+            <option value="0.625">5/8" plywood</option>
+            <option value="0.75" selected>3/4" plywood</option>
+            <option value="1">1" lumber / panel</option>
+          </select>
+        </label>
+        <label>Back panel
+          <select id="back">
+            <option value="0">None</option>
+            <option value="0.125">1/8" hardboard</option>
+            <option value="0.25" selected>1/4" plywood</option>
+            <option value="0.5">1/2" plywood</option>
+          </select>
+        </label>
+        <label>Sheet size
+          <select id="sheet">
+            <option value="48x96" selected>4' × 8' (48 × 96)</option>
+            <option value="48x48">4' × 4' (48 × 48)</option>
+            <option value="60x60">5' × 5' (Baltic birch)</option>
+            <option value="24x48">2' × 4' (24 × 48)</option>
+          </select>
+        </label>
+        <label>Saw kerf <input id="kerf" value="1/8"></label>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>3. Layout preferences</h2>
+      <div class="grid">
+        <label>Max cabinet width <input id="maxW" value="36"></label>
+        <label>Max height (optional) <input id="maxH" value="0"></label>
+        <label>Gap between devices / sides <input id="cSide" value="1"></label>
+        <label>Clearance above each device <input id="cTop" value="2"></label>
+        <label>Rear clearance (cables) <input id="cBack" value="2"></label>
+        <label>Plinth / leg height <input id="plinth" value="4"></label>
+      </div>
+    </section>
+
+    <button type="submit" class="primary">Generate design &amp; build plans</button>
+    <p id="error" class="error" role="alert"></p>
+  </form>
+
+  <section id="result" hidden>
+    <div class="no-print actions"><button type="button" id="print">Print / save as PDF</button></div>
+    <div id="out"></div>
+  </section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>

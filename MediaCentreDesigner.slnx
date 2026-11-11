@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/MediaCentreDesigner.Web/MediaCentreDesigner.Web.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/MediaCentreDesigner.Tests/MediaCentreDesigner.Tests.csproj" />
+  </Folder>
+</Solution>
